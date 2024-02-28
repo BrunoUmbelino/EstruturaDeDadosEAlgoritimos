@@ -1,4 +1,4 @@
-﻿namespace EstruturaDeDados_Algoritimos.Array
+﻿namespace EstruturaDeDados_Algoritimos.Array.ReverseArray
 {
     internal class ReverseArrayImmutable
     {

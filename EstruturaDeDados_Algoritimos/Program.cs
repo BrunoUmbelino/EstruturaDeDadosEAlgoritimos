@@ -1,4 +1,5 @@
 ﻿using EstruturaDeDados_Algoritimos.Array;
+using EstruturaDeDados_Algoritimos.Array.RotateArray;
 
 namespace EstruturaDeDados_Algoritimos
 {
@@ -6,7 +7,7 @@ namespace EstruturaDeDados_Algoritimos
     {
         static void Main(string[] args)
         {
-            var ds = new ReverseArrayRecursive();
+            var ds = new RotateArrayImmutable();
             ds.Execute();
         }
     }

@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 
-namespace EstruturaDeDados_Algoritimos.Array
+namespace EstruturaDeDados_Algoritimos.Array.ReverseArray
 {
     internal class ReverseArrayInPlace
     {
         public void Execute()
         {
-            var arr = new int[] { 3, 4, 5, 8, 10};
+            var arr = new int[] { 3, 4, 5, 8, 10 };
 
             Console.WriteLine("Array: ");
             foreach (int i in arr)
@@ -36,7 +36,7 @@ namespace EstruturaDeDados_Algoritimos.Array
                     array[end] = temp;
                 }
             }
-            
+
             return array;
         }
     }

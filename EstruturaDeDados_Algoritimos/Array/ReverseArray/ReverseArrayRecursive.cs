@@ -1,4 +1,4 @@
-﻿namespace EstruturaDeDados_Algoritimos.Array
+﻿namespace EstruturaDeDados_Algoritimos.Array.ReverseArray
 {
     internal class ReverseArrayRecursive
     {
@@ -12,7 +12,7 @@
                 Console.Write($"{i} ");
             }
 
-            ReverseArray(arr, 0, arr.Length-1);
+            ReverseArray(arr, 0, arr.Length - 1);
 
             Console.WriteLine("\nReversed Array: ");
             foreach (int i in arr)
@@ -23,7 +23,7 @@
 
         private void ReverseArray(int[] arr, int start, int end)
         {
-            if (start >= end) 
+            if (start >= end)
                 return;
 
             int temp = arr[start];
