@@ -5,7 +5,7 @@
         public void Execute()
         {
             var arr = new int[] { 1, 2, 3, 4, 5, 6 };
-            var result = RotateArray(arr);
+            var result = RotateArray(arr, "left");
 
             Console.WriteLine("Array: ");
             foreach (int i in arr)
@@ -20,16 +20,34 @@
             }
         }
 
-        private IEnumerable<int> RotateArray(int[] arr)
+        private IEnumerable<int> RotateArray(int[] nums, string direction)
         {
-            var reversedArr = new int[arr.Length];
-            var tempEnd = arr[arr.Length - 1];
-
-            for (int i = arr.Length - 1; i > 0; i--)
-                reversedArr[i] = arr[i - 1];
-            arr[0] = tempEnd;
-
-            return reversedArr;
+            if (direction.ToLower() == "right")
+            {
+                int aux = nums[nums.Length - 1];
+                for (int i = nums.Length - 1; i >= 0; i--)
+                {
+                    if (i == 0)
+                        nums[i] = aux;
+                    else
+                        nums[i] = nums[i - 1];
+                }
+                return nums;
+            }
+            else if (direction.ToLower() == "left")
+            {
+                int aux = nums[0];
+                for (int i = 0; i < nums.Length; i++)
+                {
+                    if (i == nums.Length-1)
+                        nums[i] = aux;
+                    else
+                        nums[i] = nums[i + 1];
+                }
+                return nums;
+            }
+            else
+                throw new ArgumentException();
         }
     }
-}
+} 
