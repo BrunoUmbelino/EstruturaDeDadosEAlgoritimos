@@ -7,7 +7,7 @@ namespace EstruturaDeDados_Algoritimos
     {
         static void Main(string[] args)
         {
-            var ds = new WidestVerticalAreaBetweenTwoPointsContainingNoPoints();
+            var ds = new RichestCustomerWealth();
             ds.Execute();
         }
     }
