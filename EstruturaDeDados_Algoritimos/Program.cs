@@ -9,11 +9,12 @@ namespace EstruturaDeDados_Algoritimos
     {
         static void Main(string[] args)
         {
-            var ds = new MyArray(new int[] { 34, 65, 12, 42, 99 });
+            var ds = new MyArray(new int[] { 34, 65, 12, 42, 99, 45, 11, 43, 42, 87 });
 
        
             Console.WriteLine();
-            Console.WriteLine(ds.BinarySearch(999));
+            Console.WriteLine(ds.TernarySearch(99));
+
 
         }
     }

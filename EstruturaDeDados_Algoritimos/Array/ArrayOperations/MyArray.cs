@@ -10,7 +10,7 @@
         {
             _arr = nums;
             capacidadeMaxima = nums.Length;
-            indexDoUltimoElemento = nums.Length-1;
+            indexDoUltimoElemento = nums.Length - 1;
         }
 
         private void DobrarCapacidade()
@@ -33,23 +33,51 @@
         }
 
         //O (log n)
+        //O (1)
         public int BinarySearch(int element)
         {
             System.Array.Sort(_arr);
 
-            int low = 0;
-            int high = _arr.Length - 1;
-            
-            while (low <= high)
+            int fisrt = 0;
+            int last = _arr.Length - 1;
+
+            while (fisrt <= last)
             {
-                int mid = low + (low + high) / 2;
+                int mid = fisrt + (fisrt + last) / 2;
 
                 if (_arr[mid] == element)
                     return mid;
                 else if (_arr[mid] > element)
-                    low = mid - 1;
+                    fisrt = mid - 1;
                 else if (_arr[mid] < element)
-                    high = mid - 1;
+                    last = mid - 1;
+            }
+            return -1;
+        }
+
+        // O (log n)
+        // O (1)
+        public int TernarySearch(int target)
+        {
+            System.Array.Sort(_arr);
+
+            int first = 0;
+            int last = _arr.Length - 1;
+
+            while (first <= last)
+            {
+                int mid1 = first + (last - first) / 3;
+                int mid2 = first + 2 * (last - first) / 3;
+
+                if (target == _arr[mid1]) return mid1;
+                else if (target == _arr[mid2]) return mid2;
+                else if (target < _arr[mid1]) last = mid1 - 1;
+                else if (target > _arr[mid2]) first = mid2 + 1;
+                else
+                {
+                    first = mid1 + 1;
+                    last = mid2 - 1;
+                }
             }
             return -1;
         }
@@ -74,7 +102,7 @@
             if (capacidadeMaxima == _arr.Length)
                 DobrarCapacidade();
 
-            for (int i = indexDoUltimoElemento+1; i > position; i--)
+            for (int i = indexDoUltimoElemento + 1; i > position; i--)
             {
                 _arr[i] = _arr[i - 1];
             }
@@ -89,7 +117,7 @@
             var index = LinearSearch(element);
             if (index == -1) throw new Exception("Elemento não encontrado.");
 
-            for (int i = index; i < _arr.Length -1; i++)
+            for (int i = index; i < _arr.Length - 1; i++)
             {
                 _arr[i] = _arr[i + 1];
             }
