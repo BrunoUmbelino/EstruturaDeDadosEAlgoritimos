@@ -1,11 +1,11 @@
 ﻿namespace EstruturaDeDados_Algoritimos.Array.RotateArray
 {
-    internal class RotateArrayImmutable
+    internal class RotateArray
     {
         public void Execute()
         {
             var arr = new int[] { 1, 2, 3, 4, 5, 6 };
-            var result = RotateArray(arr, "right", 3);
+            var result = Method(arr, "right", 3);
 
             Console.WriteLine("Array: ");
             foreach (int i in arr)
@@ -20,7 +20,7 @@
             }
         }
 
-        private IEnumerable<int> RotateArray(int[] nums, string direction, int times)
+        private IEnumerable<int> Method(int[] nums, string direction, int times)
         {
             if (direction.ToLower() == "right")
             {
