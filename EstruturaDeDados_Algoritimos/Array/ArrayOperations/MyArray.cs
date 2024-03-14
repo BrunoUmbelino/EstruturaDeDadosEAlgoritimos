@@ -32,8 +32,8 @@
             return -1;
         }
 
-        //O (log n)
-        //O (1)
+        // O(log n)
+        // O(1)
         public int BinarySearch(int element)
         {
             System.Array.Sort(_arr);
@@ -55,8 +55,8 @@
             return -1;
         }
 
-        // O (log n)
-        // O (1)
+        // O(log n)
+        // O(1)
         public int TernarySearch(int target)
         {
             System.Array.Sort(_arr);
@@ -80,6 +80,24 @@
                 }
             }
             return -1;
+        }
+
+        // O (N²)
+        // O (1)
+        public int[] SelectionSort()
+        {
+            for (int atual = 0; atual < _arr.Length; atual++)
+            {
+                var min_index = atual;
+                for (int j = atual + 1; j < _arr.Length; j++)
+                {
+                    if (_arr[j] < _arr[min_index])
+                        min_index = j;
+                }
+
+                (_arr[min_index], _arr[atual]) = (_arr[atual], _arr[min_index]);
+            }
+            return _arr;
         }
 
         // O(1)

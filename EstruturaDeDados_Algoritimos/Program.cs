@@ -10,12 +10,12 @@ namespace EstruturaDeDados_Algoritimos
         static void Main(string[] args)
         {
             var ds = new MyArray(new int[] { 34, 65, 12, 42, 99, 45, 11, 43, 42, 87 });
-
+            var r = ds.SelectionSort();
        
-            Console.WriteLine();
-            Console.WriteLine(ds.TernarySearch(99));
-
-
+            foreach (var d in r)
+            {
+                Console.WriteLine(d);
+            }
         }
     }
 }
