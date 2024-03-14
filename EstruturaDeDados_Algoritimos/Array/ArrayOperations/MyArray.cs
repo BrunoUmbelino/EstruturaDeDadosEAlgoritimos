@@ -13,13 +13,6 @@
             indexDoUltimoElemento = nums.Length - 1;
         }
 
-        private void DobrarCapacidade()
-        {
-            var newArr = new int[_arr.Length * 2];
-            System.Array.Copy(_arr, newArr, _arr.Length);
-            _arr = newArr;
-        }
-
         // O(n)
         // O(1)
         public int LinearSearch(int element)
@@ -100,6 +93,27 @@
             return _arr;
         }
 
+        // O(N²)
+        // O(1)
+        public int[] BubleSort()
+        {
+            for (int atual = 0; atual < _arr.Length; atual++)
+            {
+                bool swapped = false;
+                for (int comparador = 0;  comparador < _arr.Length - atual -1;  comparador++)
+                {
+                    if (_arr[comparador] > _arr[comparador + 1])
+                    {
+                        (_arr[comparador], _arr[comparador + 1]) = (_arr[comparador + 1], _arr[comparador]);
+                        swapped = true;
+                    }
+                }
+                if (swapped == false) break;
+            }
+
+            return _arr;
+        }
+
         // O(1)
         // O(1)
         public int[] Insert(int element)
@@ -140,6 +154,13 @@
                 _arr[i] = _arr[i + 1];
             }
             return _arr;
+        }
+
+        private void DobrarCapacidade()
+        {
+            var newArr = new int[_arr.Length * 2];
+            System.Array.Copy(_arr, newArr, _arr.Length);
+            _arr = newArr;
         }
     }
 }
