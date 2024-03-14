@@ -9,8 +9,8 @@ namespace EstruturaDeDados_Algoritimos
     {
         static void Main(string[] args)
         {
-            var ds = new MyArray(new int[] { 34, 65, 12, 42, 99, 45, 11, 43, 42, 87 });
-            var r = ds.BubleSort();
+            var ds = new MyArray(new int[] { 34, 65, 12, 42, 99, 1, 0 ,434, 56, 234, 76, 23, 76 });
+            var r = ds.InsertionSort();
        
             foreach (var d in r)
             {

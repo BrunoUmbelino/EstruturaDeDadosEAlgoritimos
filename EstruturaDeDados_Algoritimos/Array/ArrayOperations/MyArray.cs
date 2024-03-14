@@ -114,6 +114,26 @@
             return _arr;
         }
 
+        // O(n²)
+        // O(1)
+        public int[] InsertionSort()
+        {
+            for (int i = 1; i < _arr.Length; i++)
+            {
+                if (_arr[i] < _arr[i - 1])
+                {
+                    int j = i;
+                    while (j > 0 && _arr[j] < _arr[j - 1])
+                    {
+                        (_arr[j], _arr[j - 1]) = (_arr[j - 1], _arr[j]);
+                        j--;
+                    }
+                }
+            }
+
+            return _arr;
+        }
+
         // O(1)
         // O(1)
         public int[] Insert(int element)
