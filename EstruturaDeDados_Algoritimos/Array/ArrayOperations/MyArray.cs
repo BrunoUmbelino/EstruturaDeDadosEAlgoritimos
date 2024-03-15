@@ -2,7 +2,7 @@
 {
     internal class MyArray
     {
-        private int[] _arr;
+        private int[] _arr { get; set; }
         private int capacidadeMaxima;
         private int indexDoUltimoElemento;
 
@@ -11,6 +11,11 @@
             _arr = nums;
             capacidadeMaxima = nums.Length;
             indexDoUltimoElemento = nums.Length - 1;
+        }
+
+        public int[] GetArray()
+        {
+            return _arr;
         }
 
         // O(n)
@@ -132,6 +137,66 @@
             }
 
             return _arr;
+        }
+
+        private void Merge(int[] arr, int leftIndex, int midIndex, int rightIndex)
+        {
+            // Criando o setup 
+            int leftArrLength = midIndex - leftIndex + 1;
+            int rightArrLength = rightIndex - midIndex;
+
+            int[] leftArr = new int[leftArrLength];
+            int[] rightArr = new int[rightArrLength];
+            
+            int i, j;
+            for (i = 0; i < leftArrLength; i++)
+                leftArr[i] = arr[leftIndex + 1];
+            for (j = 0; j < rightArrLength; j++)
+                rightArr[j] = arr[midIndex + 1 + j];
+            //
+
+
+            (i, j) = (0, 0);
+            int k = leftIndex;
+            while(i < leftArrLength && j < rightArrLength)
+            {
+                if (leftArr[i] <= rightArr[j])
+                {
+                    arr[k] = leftArr[i];
+                    i++;
+                } else
+                {
+                    arr[k] = rightArr[j];
+                    j++;
+                }
+                k++;
+            }
+
+            while (i < leftArrLength)
+            {
+                arr[k] = leftArr[i];
+                i++; k++;
+            }
+            while(j < rightArrLength)
+            {
+                arr[k] = rightArr[j];
+                j++; k++;
+            }
+        }
+
+        public int[] MergeSort(int[] arr, int leftIndex, int rightIndex)
+        {
+            if (leftIndex < rightIndex)
+            {
+                int midIndex = leftIndex + (rightIndex - leftIndex) / 2;
+                
+                MergeSort(arr, leftIndex, midIndex);
+                MergeSort(arr, midIndex+1, rightIndex);
+
+                Merge(arr, leftIndex, midIndex, rightIndex);
+            }
+
+            return arr;
         }
 
         // O(1)
