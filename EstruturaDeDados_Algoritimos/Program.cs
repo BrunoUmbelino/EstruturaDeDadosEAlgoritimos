@@ -10,7 +10,7 @@ namespace EstruturaDeDados_Algoritimos
     {
         static void Main(string[] args)
         {
-            var ds = new RemoveOneElementtoMaketheArrayStrictlyIncreasing();
+            var ds = new LongestEvenOddSubarrayWithThreshold();
             ds.Execute();
         }
     }

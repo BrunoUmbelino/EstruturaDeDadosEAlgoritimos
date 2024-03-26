@@ -4,8 +4,8 @@
     {
         public void Execute()
         {
-            var arr = new int[] { 512, 867, 904, 997, 403 };
-            var result = CanBeIncreasing(arr);
+            var arr = new int[] { 2, 3, 1, 2 };
+            var result = CanBeIncreasing2(arr);
 
             Console.WriteLine("Array: ");
             foreach (int i in arr)
@@ -14,7 +14,6 @@
             }
 
             Console.WriteLine($"\nR: {result}");
-
         }
 
         // Melhorar o desempenho
@@ -38,18 +37,45 @@
                 control++;
 
                 // verificar se o array temporário é strictly
-                bool thisArrIsStrictly = true;
+                bool arrIsSorted = true;
                 for (int i = 1; i < tempArr.Length; i++)
                 {
                     if (tempArr[i] <= tempArr[i - 1])
                     {
-                        thisArrIsStrictly = false;
+                        arrIsSorted = false;
                         break;
                     }
+
+                    tempArr[indexTempArr] = nums[i];
+                    indexTempArr++;
                 }
 
-                if (thisArrIsStrictly == true)
+                if (arrIsSorted == true)
                     return true;
+            }
+
+            return false;
+        }
+
+        private bool CanBeIncreasing2(int[] nums)
+        {
+            int control = 0;
+
+            while (control < nums.Length)
+            {
+                var tempArr = new int[nums.Length - 1];
+                int indexTempArr = 0;
+                for (int i = 0; i < nums.Length; i++)
+                {
+                    if (control == i)
+                        continue;
+
+                    tempArr[indexTempArr] = nums[i];
+                    indexTempArr++;
+                }
+                control++;
+
+
             }
 
             return false;
